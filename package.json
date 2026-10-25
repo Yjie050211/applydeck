@@ -1,0 +1,15 @@
+{
+  "name": "applydeck",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "description": "投递舱 ApplyDeck - 本地优先的实习投递追踪台",
+  "scripts": {
+    "start": "node server/index.mjs",
+    "start:no-open": "node server/index.mjs --no-open",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  }
+}
