@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>投递舱采集器</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <div class="brand">
+      <div class="brand-mark">舱</div>
+      <div class="brand-text">
+        <div class="brand-name">投递舱采集器</div>
+        <div class="brand-sub">APPLYDECK · CAPTURE</div>
+      </div>
+    </div>
+    <div class="status" title="本机投递舱服务状态">
+      <span class="dot checking" id="status-dot"></span>
+      <span class="status-text" id="status-text">检测中…</span>
+    </div>
+  </header>
+
+  <section class="source" aria-label="页面来源">
+    <div class="source-left">
+      <span class="site-badge" id="site-badge">读取中</span>
+      <span class="source-host" id="source-host">当前页面</span>
+    </div>
+    <div class="source-right">
+      <span class="chip" id="salary-chip" hidden></span>
+      <button type="button" class="linkbtn" id="reload-btn">重新读取</button>
+    </div>
+  </section>
+
+  <div class="notice" id="notice" hidden></div>
+
+  <form id="form" autocomplete="off">
+    <label class="field">
+      <span>公司 <b class="req">*</b></span>
+      <input id="company" type="text" maxlength="80" placeholder="例如：星海科技" spellcheck="false">
+    </label>
+    <label class="field">
+      <span>岗位</span>
+      <input id="role" type="text" maxlength="120" placeholder="例如：AI 应用开发实习生" spellcheck="false">
+    </label>
+    <div class="row2">
+      <label class="field">
+        <span>地点</span>
+        <input id="location" type="text" maxlength="60" placeholder="例如：北京" spellcheck="false">
+      </label>
+      <label class="field">
+        <span>渠道</span>
+        <select id="channel">
+          <option value="official">官网</option>
+          <option value="boss">BOSS直聘</option>
+          <option value="shixiseng">实习僧</option>
+          <option value="nowcoder">牛客</option>
+          <option value="referral">内推</option>
+          <option value="other">其他</option>
+        </select>
+      </label>
+    </div>
+    <div class="field">
+      <span>状态</span>
+      <div class="segmented" id="status-toggle">
+        <label class="seg"><input type="radio" name="status" value="wishlist" checked><span>待投递</span></label>
+        <label class="seg"><input type="radio" name="status" value="applied"><span>已投递</span></label>
+      </div>
+    </div>
+    <label class="field">
+      <span>岗位链接</span>
+      <input id="url" type="text" readonly placeholder="未获取到链接">
+    </label>
+    <button type="submit" class="btn-primary" id="submit-btn">
+      <span class="spinner-sm" id="submit-spinner" hidden></span>
+      <span id="submit-label">加入投递舱</span>
+    </button>
+  </form>
+
+  <div class="result" id="result" hidden></div>
+
+  <footer class="foot">
+    <a class="open-link" id="open-link" href="http://127.0.0.1:8788/#/table" target="_blank" rel="noopener">打开投递舱 ↗</a>
+    <span class="foot-note">只写入本机 · 不上传</span>
+  </footer>
+</div>
+<script src="extract.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>
